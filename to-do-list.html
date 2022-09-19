@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://kit.fontawesome.com/20081ac52e.js" crossorigin="anonymous"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <title> To do list </title>
+
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #834d9b;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #d04ed6, #834d9b);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #d04ed6, #834d9b);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #fff;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    #to-do-input {
+      border-radius: 3px;
+      width: 80%;
+      border: none;
+      padding: 10px;
+      font-size: 18px;
+
+    }
+
+    #to-do-input:focus {
+      outline: none;
+    }
+
+    #to-do-button {
+      background: transparent;
+      width: 18%;
+      border: none;
+      color: #fff;
+      border: 2px solid #fff;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 3px;
+    }
+
+    #to-do-list {
+      list-style: none;
+    }
+
+    #to-do-list li {
+      background: #fff;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 3px;
+      transition: 0.3s;
+      cursor: pointer;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+
+    }
+
+    #to-do-list li:hover {
+      background: rgba(238, 238, 238, 0.9);
+
+    }
+
+
+    .delete {
+      background: red;
+      color: #fff;
+      padding: 5px;
+      font-size: 12px;
+      border-radius: 3px;
+
+    }
+
+    .check {
+      margin-right: 4px;
+      background: green;
+      border-radius: 3px;
+      padding: 5px;
+      font-size: 12px;
+      color: #fff;
+    }
+  </style>
+</head>
+
+
+<div class="container">
+
+  <h2>To do List</h2>
+
+
+
+  <div class="row">
+    <input type="text" id="to-do-input"> <button id="to-do-button"> <i class="fas fa-plus"></i> Add</button>
+  </div>
+
+  <ul id="to-do-list">
+
+  
+
+  </ul>
+
+
+</div>
+
+<body>
+
+  <script>
+
+    input = document.querySelector("#to-do-input");
+    button = document.querySelector("#to-do-button");
+    todo = document.querySelector("#to-do-list");
+    deletex = document.querySelectorAll(".delete");
+    check = document.querySelector(".check");
+
+    button.addEventListener("click", function () {
+
+      todo.innerHTML += `<li>${input.value} <div><span class="check"><i class="fas fa-check"></i></span> <span onclick="deleteItem(this)" class="delete"><i class="far fa-trash-alt"></i></span> </div> </li>`;
+
+
+    });
+
+// console.log(deletex);
+
+//     deletex.forEach(e => {
+//   e.addEventListener("click",() =>
+//   {
+//     alert("s");
+
+//     e.closest("li").remove()
+//     // let div1 = this.parentElement.parentElement;
+//     // div1.style.display = "none";
+//   });
+
+// });
+
+
+function deleteItem(e)
+
+{
+  e.closest("li").remove();
+}
+
+    check.addEventListener("click", function () {
+
+      let div2 = this.parentElement.parentElement;
+    div2.style.textDecoration = "line-through";
+
+
+    });
+
+  </script>
+
+</body>
+
+</html>
